@@ -23,7 +23,7 @@ const GodChatbot = () => {
     formData.append('prompt', prompt);
 
     try {
-      const res = await axios.post('http://127.0.0.1:5000/upload', formData, {
+      const res = await axios.post('https://code-compiler-9ede.vercel.app/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
