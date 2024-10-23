@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+Pillow 
+requests
+python-dotenv
+pybase64
+google-generativeai
