@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "cd frontend && npm run dev",
     "backend": "cd backend && npm start",
-    "flask": "cd flaskk &&  python -m venv venv && venv/Scripts/activate && pip install -r requirements.txt && python app.py",
+    "flask": "cd flaskk && source venv/bin/activate && pip install -r requirements.txt && python app.py",
     "all": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run flask\""
   },
   "keywords": [],
