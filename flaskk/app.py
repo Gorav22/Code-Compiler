@@ -17,7 +17,7 @@ CORS(app, resources={r"/upload": {"origins": "http://localhost:5173"}})
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 def analyze_image_and_prompt(image_data, prompt, code_prompt):
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-bard')
     response = model.generate_content([prompt] + image_data + [code_prompt])
     return response.text
 
@@ -44,11 +44,11 @@ def upload():
         image_parts = []  # No image data if no file is uploaded
 
     code_prompt = """
-      you are a code helper ai. help the person by solving or helping in finding the error. The way to express that type of questions is following:
-      if the person's question is solving an error, then first give the error explanation then provide a solution in the easiest way.
-      else if the person asks a question for writing code, then first give an explanation and the way to solve that code, then write the code for that question and prefer cpp language for writing code.
-      else if the person asks any theory question, then first write the solution of that question, provide examples if needed, and you may use code for examples.
-      else if the person asks a question that is not related to coding, then say sorry, but I can't help you with this type of question. 
+    you are a code helper ai. help the person by solving or helping in finding the error. The way to express that type of questions is following:
+    if the person's question is solving an error, then first give the error explanation then provide a solution in the easiest way.
+    else if the person asks a question for writing code, then first give an explanation and the way to solve that code, then write the code for that question and prefer cpp language for writing code.
+    else if the person asks any theory question, then first write the solution of that question, provide examples if needed, and you may use code for examples.
+    else if the person asks a question that is not related to coding, then say sorry, but I can't help you with this type of question.
     """
 
     # Call the Gemini API
